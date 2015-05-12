@@ -494,7 +494,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
             //Hendum basically thessu fragment inn i stad thess sem er fyrir..
 			if (fragment != null) {
                 //Added cast to fragment
-				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, (Fragment) fragment).commit();
+				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
 			}
 			mLastSelectedMenu = position;
 		}
@@ -571,8 +571,8 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
         startActivity(intent);
     }
 
-    public String getText()
+    /* public String getText()
     {
         return "test";
-    }
+    } */
 }

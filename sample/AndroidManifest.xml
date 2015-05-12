@@ -40,7 +40,7 @@
 
         <activity
             android:name=".activity.ScanActivity"
-            android:label="@string/activity_name"/>
+            android:label="@string/activity_name">
             
             <intent-filter>
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
@@ -52,7 +52,7 @@
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_list"
                 android:value="activity.StartActivity" />
-
+        </activity>
 
         <activity
             android:name=".activity.RegisterUserActivity"
