@@ -18,7 +18,7 @@ import com.github.devnied.emvnfccard.utils.CroutonUtils.CoutonColor;
  * @author Millau Julien
  *
  */
-public class ConfigurationFragment extends PreferenceFragment implements ScanHandler {
+public class ConfigurationFragment extends PreferenceFragment {
 
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
@@ -50,9 +50,4 @@ public class ConfigurationFragment extends PreferenceFragment implements ScanHan
 		view.setBackgroundColor(getResources().getColor(android.R.color.white));
 		super.onViewCreated(view, savedInstanceState);
 	}
-
-    @Override
-    public void setAmount(String amount) {
-
-    }
 }

@@ -61,7 +61,8 @@
 
         <activity
             android:name=".activity.CartActivity"
-            android:label="@string/title_activity_register_user">
+            android:label="@string/title_activity_register_user"
+            android:windowSoftInputMode="adjustPan" >
         </activity>
 
 

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.github.devnied.emvnfccard.EmvApplication;
 import com.github.devnied.emvnfccard.R;
+import com.github.devnied.emvnfccard.activity.ScanActivity;
 import com.github.devnied.emvnfccard.activity.SimplePayActivity;
 import com.github.devnied.emvnfccard.activity.testActivity;
 import com.github.devnied.emvnfccard.fragment.viewPager.AbstractFragment;
@@ -34,7 +35,7 @@ import java.util.Locale;
  * @author Millau Julien
  *
  */
-public class CardDetailFragment extends AbstractFragment implements ScanHandler {
+public class CardDetailFragment extends AbstractFragment {
 
 	/**
 	 * Card to display
@@ -119,10 +120,8 @@ public class CardDetailFragment extends AbstractFragment implements ScanHandler 
 		// Update content
 		updateContent();
 
-        /*
-        Intent intent = getIntent();
-        String total = intent.getStringExtra(SimplePayActivity.EXTRA_PRICE); */
-        //TextView text = (TextView) view.findViewById(R.id.text_total);
+
+        /* TODO Log.d("TEST",((ScanActivity)this.getParentFragment().getActivity()).getText()); */
 	}
 
 	/**
@@ -222,10 +221,11 @@ public class CardDetailFragment extends AbstractFragment implements ScanHandler 
 		this.mCard = mCard;
 	}
 
+    /*
     @Override
     public void setAmount(String amount) {
         this.mAmount.setText(amount);
-    }
+    } */
 
 
 }

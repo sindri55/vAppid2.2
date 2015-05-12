@@ -472,21 +472,21 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 			mRefreshableContent.get().update();
 		}
 	}
-    ScanHandler fragment = null;
+
 	@Override
 	public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
         if (mLastSelectedMenu != position) {
-
+            Fragment fragment = null;
 			switch (position) {
                 case ConstantUtils.CARDS_DETAILS:
-                    fragment = (ScanHandler)new ViewPagerFragment();
+                    fragment = new ViewPagerFragment();
                     refreshContent();
                     break;
                 case ConstantUtils.CONFIGURATION:
-                    fragment = (ScanHandler)new ConfigurationFragment();
+                    fragment = new ConfigurationFragment();
                     break;
                 case ConstantUtils.ABOUT:
-                    fragment = (ScanHandler)new AboutFragment();
+                    fragment = new AboutFragment();
                     break;
                 default:
 				break;
@@ -495,12 +495,6 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 			if (fragment != null) {
                 //Added cast to fragment
 				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, (Fragment) fragment).commit();
-
-                //Start
-                /*
-                Intent intent = getIntent();
-                total = intent.getStringExtra(SimplePayActivity.EXTRA_PRICE);
-                fragment.setAmount("Upphæð: " + total); */
 			}
 			mLastSelectedMenu = position;
 		}
@@ -575,5 +569,10 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
     public void enterCardInfo(View view) {
         Intent intent = new Intent(this, ManualPayByCardActivity.class);
         startActivity(intent);
+    }
+
+    public String getText()
+    {
+        return "test";
     }
 }

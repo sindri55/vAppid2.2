@@ -23,12 +23,7 @@ import com.github.devnied.emvnfccard.utils.CroutonUtils.CoutonColor;
  * @author Millau Julien
  *
  */
-public class AboutFragment extends Fragment implements ScanHandler {
-
-    @Override
-    public void setAmount(String amount) {
-
-    }
+public class AboutFragment extends Fragment {
 
     /**
 	 * Custom LinkMovementMethod for catching impossible action

@@ -30,7 +30,7 @@ import java.util.List;
  * @author Millau Julien
  *
  */
-public class ViewPagerFragment extends Fragment implements IRefreshable, ScanHandler {
+public class ViewPagerFragment extends Fragment implements IRefreshable {
 
 	/**
 	 * Tab layout
@@ -126,9 +126,4 @@ public class ViewPagerFragment extends Fragment implements IRefreshable, ScanHan
 			mTabLayout.updateTabs();
 		}
 	}
-
-    @Override
-    public void setAmount(String amount) {
-
-    }
 }
