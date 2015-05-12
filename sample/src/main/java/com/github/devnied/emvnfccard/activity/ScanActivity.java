@@ -35,6 +35,7 @@ import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
 import com.github.devnied.emvnfccard.fragment.LogOutFragment;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
+import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.model.EmvCard;
 import com.github.devnied.emvnfccard.model.EmvTransactionRecord;
 import com.github.devnied.emvnfccard.model.enums.CountryCodeEnum;
