@@ -47,6 +47,7 @@ public class CartActivity extends ListActivity {
         inventoryItems = new ArrayList<String>();
         inventoryItems.add("Bindi 3000");
         inventoryItems.add("Slaufa 3500");
+        inventoryItems.add("Jakki 7500");
         inventoryAdapter = new ListViewInventoryAdapter(inventoryItems, this);
 
         ListView lwInventory = (ListView) findViewById(R.id.inventory_list);
