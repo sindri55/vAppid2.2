@@ -30,11 +30,11 @@ import com.github.devnied.emvnfccard.adapter.MenuDrawerAdapter;
 import com.github.devnied.emvnfccard.enums.EmvCardScheme;
 import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
+import com.github.devnied.emvnfccard.fragment.CartFragment;
 import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
+import com.github.devnied.emvnfccard.fragment.LogOutFragment;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
-import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
-import com.github.devnied.emvnfccard.interfaces.ScanHandler;
 import com.github.devnied.emvnfccard.model.EmvCard;
 import com.github.devnied.emvnfccard.model.EmvTransactionRecord;
 import com.github.devnied.emvnfccard.model.enums.CountryCodeEnum;
@@ -475,6 +475,39 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 	@Override
 	public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
+		if (mLastSelectedMenu != position) {
+			Fragment fragment = null;
+			switch (position) {
+				case ConstantUtils.CART:
+					fragment = new ViewPagerFragment();
+					refreshContent();
+					break;
+				case ConstantUtils.CONFIGURATION:
+					fragment = new ConfigurationFragment();
+					break;
+				case ConstantUtils.ABOUT:
+					fragment = new AboutFragment();
+					break;
+				case ConstantUtils.SIMPLEPAY:
+					fragment = new SimplePayFragment();
+					break;
+				case ConstantUtils.LOGOUT:
+					fragment = new LogOutFragment();
+					break;
+				default:
+					break;
+			}
+			if (fragment != null) {
+				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
+			}
+			mLastSelectedMenu = position;
+		}
+		mDrawerLayout.closeDrawer(mDrawerListView);
+	}
+
+  /*  ScanHandler fragment = null;
+	@Override
+	public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
         if (mLastSelectedMenu != position) {
             Fragment fragment = null;
 			switch (position) {
@@ -488,6 +521,12 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
                 case ConstantUtils.ABOUT:
                     fragment = new AboutFragment();
                     break;
+				case ConstantUtils.SIMPLEPAY:
+					fragment = (ScanHandler)new SimplePayFragment();
+					break;
+				case ConstantUtils.LOGOUT:
+					fragment = (ScanHandler) new LogOutFragment();
+					break;
                 default:
 				break;
 			}
@@ -499,7 +538,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 			mLastSelectedMenu = position;
 		}
 		mDrawerLayout.closeDrawer(mDrawerListView);
-	}
+	}*/
 
 	@Override
 	public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
