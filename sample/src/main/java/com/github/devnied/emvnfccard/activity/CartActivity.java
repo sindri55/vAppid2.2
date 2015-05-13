@@ -1,5 +1,6 @@
 package com.github.devnied.emvnfccard.activity;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +18,7 @@ import com.github.devnied.emvnfccard.adapter.ListViewRemovableAdapter;
 
 import java.util.ArrayList;
 
-public class CartActivity extends ListActivity {
+public class CartActivity extends Activity {
     ArrayList<Integer> prices;
     ArrayList<Integer> quantities; //1 to 1 correspondance with prices
     ArrayList<String> listItems;
@@ -40,8 +41,12 @@ public class CartActivity extends ListActivity {
         setContentView(R.layout.activity_cart);
 
         //Setting up the adapter for the cart itself
+        /*
         adapter = new ListViewRemovableAdapter(listItems, this, prices, quantities);
-        setListAdapter(adapter);
+        setListAdapter(adapter); */
+        adapter = new ListViewRemovableAdapter(listItems, this, prices, quantities);
+        ListView lwCartItems = (ListView) findViewById(R.id.cart_list);
+        lwCartItems.setAdapter(adapter);
 
         //Set up the inventory adapter..
         inventoryItems = new ArrayList<String>();
@@ -82,21 +87,6 @@ public class CartActivity extends ListActivity {
         Intent intent = new Intent(this, ScanActivity.class);
         startActivity(intent);
     }
-
-    /*
-    public void addQty(View view){
-        EditText qty = (EditText) findViewById(R.id.quantity);
-        Integer quantity = Integer.parseInt(qty.getText().toString());
-        quantity++;
-        qty.setText(quantity.toString());
-    }
-
-    public void subtractQty(View view) {
-        EditText qty = (EditText) findViewById(R.id.quantity);
-        Integer quantity = Integer.parseInt(qty.getText().toString());
-        quantity--;
-        qty.setText(quantity.toString());
-    } */
 
     public void addToCart(String item) {
         Log.d("hi2u", item);
