@@ -1,5 +1,6 @@
 package com.github.devnied.emvnfccard.activity;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by Ragnar on 13.5.2015.
  */
-public class CreateInventoryActivity extends ListActivity {
+public class CreateInventoryActivity extends Activity {
     ArrayList<String> listItems;
     ListViewCreateInventoryAdapter adapter;
     @Override
@@ -30,7 +31,9 @@ public class CreateInventoryActivity extends ListActivity {
 
         //Setting up the adapter for the listview.. (list)..
         adapter = new ListViewCreateInventoryAdapter(listItems, this);
-        setListAdapter(adapter);
+        ListView lwCreateInventoryList = (ListView) findViewById(R.id.create_inventory_list);
+        lwCreateInventoryList.setAdapter(adapter);
+        //setListAdapter(adapter);
     }
 
     public void addToList(View view) {
