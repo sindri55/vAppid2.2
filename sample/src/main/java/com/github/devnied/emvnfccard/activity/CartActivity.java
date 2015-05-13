@@ -81,11 +81,14 @@ public class CartActivity extends ListActivity {
     public void goPay(View view) {
         Intent intent = new Intent(this, ScanActivity.class);
         startActivity(intent);
+        CartActivity.this.finish();
     }
 
     public void quit(View view){
         Intent i = new Intent(this, SimplePayActivity.class);
         startActivity(i);
+        CartActivity.this.finish();
+
     }
 
     /*

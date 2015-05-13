@@ -24,6 +24,8 @@
         android:layout_weight="1"
         android:background="#1F2A65"
        />
+
+
     <Button
         android:id="@+id/login"
         android:text="@string/button_login"

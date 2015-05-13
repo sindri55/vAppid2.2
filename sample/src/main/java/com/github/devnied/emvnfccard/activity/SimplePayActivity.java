@@ -27,6 +27,7 @@ import com.github.devnied.emvnfccard.fragment.IRefreshable;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
 import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.utils.ConstantUtils;
+import com.github.devnied.emvnfccard.utils.CroutonUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
      */
     private ListView mDrawerListView;
 
-
+    String extra;
     public final static String EXTRA_CART_CONTENTS = "com.rbrjas.vappid.CART_CONTENTS";
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -77,6 +78,17 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_pay);
+        Bundle extras = getIntent().getExtras();
+
+        if(extras == null) {
+            extra= null;
+        } else {
+            extra  = extras.getString("ManualPay");
+            CroutonUtils.display(this, extra, CroutonUtils.CoutonColor.GREEN);
+        }
+
+        //CroutonUtils.display(this, getText(R.string.card_read)                                           , CroutonUtils.CoutonColor.GREEN);
+
 
         /* Sidebar menu */
         // get ListView defined in activity_main.xml
@@ -261,10 +273,13 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
 
 
     public void goPay(View view) {
-        Intent intent = new Intent(this, ScanActivity.class);
         String price = ((TextView) findViewById(R.id.edit_price)).getText().toString();
-        intent.putExtra("price", price);
-        startActivity(intent);
+        if(price.length()==0){
+            CroutonUtils.display(this, "Þú verður að velja upphæð kjáni!", CroutonUtils.CoutonColor.RED);
+        }else if(price.length() > 0){
+            Intent intent = new Intent(this, ScanActivity.class);
+            intent.putExtra("price", price);
+            startActivity(intent);
+        }
     }
-
 }

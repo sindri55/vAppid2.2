@@ -6,7 +6,10 @@
     
     <!-- Material color -->
     <color name="black_error">#ff616161</color>
-    <color name="green_success">#ff9ccc65</color>
+    <color name="green_success">#ff43cc0b</color>
+    <color name="red_danger">#ffec001b</color>
+
+
     <color name="orange">#ffffc107</color>
     
     <!-- Blue -->

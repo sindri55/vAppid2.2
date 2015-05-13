@@ -21,5 +21,7 @@ public class LoginActivity extends Activity {
     public void doLogIn(View view) {
         Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);
+        LoginActivity.this.finish();
+
     }
 }

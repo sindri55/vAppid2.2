@@ -123,7 +123,7 @@
     <string name="button_pay">Borga</string>
     <string name="title_activity_pay">Payment</string>
     <string name="button_scancard">Skanna kort</string>
-    <string name="button_entercardinfo">Slá inn kortaupplýsingar.</string>
+    <string name="button_entercardinfo">Slá inn kortaupplýsingar</string>
     <string name="button_back">Til baka</string>
     <string name="title_activity_manual_pay_by_card">Card Info</string>
     <string name="radio_credit">Kredit</string>
@@ -151,4 +151,6 @@
    <string name="hint_amount">Upphæð:</string>
    <string name="button_delete">Eyða</string>
    <string name="hint_search">Leita</string>
+    <string name="gera_aftur">Gera aftur!</string>
+    <string name="kvittun">Kvittun?</string>
 </resources>

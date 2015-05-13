@@ -23,12 +23,9 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.github.devnied.emvnfccard.BuildConfig;
 import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.adapter.MenuDrawerAdapter;
-import com.github.devnied.emvnfccard.enums.EmvCardScheme;
 import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
 import com.github.devnied.emvnfccard.fragment.CartFragment;
@@ -38,10 +35,6 @@ import com.github.devnied.emvnfccard.fragment.IRefreshable;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
 import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.model.EmvCard;
-import com.github.devnied.emvnfccard.model.EmvTransactionRecord;
-import com.github.devnied.emvnfccard.model.enums.CountryCodeEnum;
-import com.github.devnied.emvnfccard.model.enums.CurrencyEnum;
-import com.github.devnied.emvnfccard.model.enums.TransactionTypeEnum;
 import com.github.devnied.emvnfccard.parser.EmvParser;
 import com.github.devnied.emvnfccard.provider.Provider;
 import com.github.devnied.emvnfccard.utils.AtrUtils;
@@ -57,11 +50,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Date;
-import java.util.List;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import fr.devnied.bitlib.BytesUtils;
@@ -148,7 +137,8 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-        Intent intent = getIntent();
+
+
 		progress = new ProgressDialog(this);
 		Bundle extras = getIntent().getExtras();
 		if(extras == null) {
@@ -156,9 +146,6 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 		} else {
 			newString= extras.getString("price");
 		}
-
-		Toast.makeText(getApplicationContext(), newString,
-				Toast.LENGTH_LONG).show();
 
 		if (Build.VERSION.SDK_INT >= 19) {
 			// create our manager instance after the content view is set
@@ -331,13 +318,17 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 					// close dialog
 					if (mDialog != null) {
 						mDialog.cancel();
+
+
 					}
+
+
 
 					if (!mException) {
 						if (mCard != null) {
 							if (StringUtils.isNotBlank(mCard.getCardNumber())) {
 
-								 mReadCard = mCard;
+								mReadCard = mCard;
 								progress.setMessage("Greiðsla í vinnslu...");
 								progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 								progress.setIndeterminate(true);
@@ -346,17 +337,12 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 								final Handler handler = new Handler();
 								handler.postDelayed(new Runnable() {
 									public void run() {
-										Toast.makeText(getApplicationContext(), "Þú hefur greitt með kreditkortinu þínu!",
-												Toast.LENGTH_LONG).show();
-
+										progress.cancel();
+										Intent intent = new Intent(ScanActivity.this, testActivity.class);
+										startActivity(intent);
+										ScanActivity.this.finish();
 									}
 								}, 3000);
-								Intent intent = new Intent(ScanActivity.this, testActivity.class);
-
-								startActivity(intent);
-
-
-
 
 							} else if (mCard.isNfcLocked()) {
 								CroutonUtils.display(ScanActivity.this, getText(R.string.nfc_locked), CoutonColor.ORANGE);
@@ -409,7 +395,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 		return AtrUtils.getDescriptionFromAts(BytesUtils.bytesToString(pAts));
 	}
 
-	@Override
+	/*@Override
 	public void onBackPressed() {
 		if (BuildConfig.DEBUG) {
 			if (mReadCard == null) {
@@ -465,9 +451,9 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 				CroutonUtils.display(ScanActivity.this, getText(R.string.card_read), CoutonColor.GREEN);
 			}
 		} else {
-			super.onBackPressed();
+			//super.onBackPressed();
 		}
-	}
+	}*/
 
 	@Override
 	protected void onDestroy() {
@@ -601,9 +587,14 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
         Intent intent = new Intent(this, ManualPayByCardActivity.class);
         startActivity(intent);
     }
+	public void cancel(View view){
+		Intent i = new Intent(this, SimplePayActivity.class);
+		startActivity(i);
+		ScanActivity.this.finish();
+	}
 
-    /* public String getText()
+     public String getText()
     {
-        return "test";
-    } */
+       	return newString;
+    }
 }

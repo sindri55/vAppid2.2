@@ -15,10 +15,33 @@
         <ImageView
             android:id="@+id/paid"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/paid"
-            android:layout_marginTop="100dp"
+            android:layout_height="340dp"
+            android:src="@drawable/payed"
+
             android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/paidd"
+            android:text="@string/gera_aftur"
+            android:textColor="#FFFFFF"
+            android:textSize="60sp"
+            android:onClick="doagain"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@color/green_success"
+            />
+        <Button
+            android:id="@+id/resceve"
+            android:text="@string/kvittun"
+            android:textColor="#FFFFFF"
+            android:textSize="60sp"
+            android:clickable="false"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/buttonshapeorange"
+            />
     </TableLayout>
 
 

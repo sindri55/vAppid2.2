@@ -65,6 +65,11 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
 
+        <activity android:name=".activity.CreateInventoryActivity"
+            android:label="Búa til vörulista"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+
 
         <activity
             android:name=".activity.testActivity">

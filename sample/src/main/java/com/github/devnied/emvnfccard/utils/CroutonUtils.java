@@ -23,7 +23,7 @@ public final class CroutonUtils {
 	 *
 	 */
 	public static enum CoutonColor {
-		BLACK, ORANGE, GREEN;
+		BLACK, ORANGE, GREEN, RED;
 	}
 
 	/**
@@ -41,6 +41,10 @@ public final class CroutonUtils {
 		case GREEN:
 			color = pActivity.getResources().getColor(R.color.green_success);
 			break;
+
+			case RED:
+				color = pActivity.getResources().getColor(R.color.red_danger);
+				break;
 		case ORANGE:
 			color = pActivity.getResources().getColor(R.color.orange);
 			break;

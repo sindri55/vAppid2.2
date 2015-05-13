@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import com.github.devnied.emvnfccard.R;
 
@@ -22,23 +21,6 @@ public class ManualPayByCardActivity extends Activity{
         setContentView(R.layout.activity_manual_pay_by_card);
         progress = new ProgressDialog(this);
 
-
-
-
-       /* Button btn = (Button) findViewById(R.id.ccPay);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*progress.setMessage("Greiðsla í vinnslu...");
-                progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                progress.setIndeterminate(true);
-                progress.show();
-
-                Toast.makeText(getApplicationContext(), "Þú hefur greitt með kreditkortinu þínu!",
-                        Toast.LENGTH_LONG).show();
-            }
-        });*/
     }
 
 
@@ -75,13 +57,14 @@ public class ManualPayByCardActivity extends Activity{
         progress.setIndeterminate(true);
         progress.show();
 
+
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                Intent intent = new Intent(ManualPayByCardActivity.this, SimplePayActivity.class);
-                Toast.makeText(getApplicationContext(), "Þú hefur greitt með kreditkortinu þínu!",
-                        Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(ManualPayByCardActivity.this, testActivity.class);
                 startActivity(intent);
+
 
             }
         }, 3000);

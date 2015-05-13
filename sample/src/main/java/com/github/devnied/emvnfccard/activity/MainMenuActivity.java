@@ -22,5 +22,7 @@ public class MainMenuActivity extends Activity {
     public void doSell(View view) {
         Intent intent = new Intent(this, SimplePayActivity.class);
         startActivity(intent);
+        MainMenuActivity.this.finish();
+
     }
 }

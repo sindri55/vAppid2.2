@@ -81,12 +81,43 @@
         android:orientation="vertical"
         android:padding="10dp" >
 
-        <TextView
-            android:id="@+id/text_total"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/text_total"/>
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:background="@color/green_success"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+                <TextView
+                    android:id="@+id/text_total"
+                    android:layout_width="wrap_content"
+                    android:textSize="30dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/text_total"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_horizontal"
+                    android:textSize="30dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Kr"/>
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
 
         <ImageView
             android:id="@+id/contactLessImg"
@@ -105,13 +136,37 @@
             android:textStyle="bold" >
         </TextView>
 
-        <Button
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom"
+
+            >
+        <Button
             android:text="@string/button_entercardinfo"
-            android:onClick="enterCardInfo"/>
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:onClick="enterCardInfo"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/buttonshapeorange"
+            />
+
+        <Button
+            android:text="@string/cancel"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp"
+            android:onClick="cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@color/button_red"
+            />
+            </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

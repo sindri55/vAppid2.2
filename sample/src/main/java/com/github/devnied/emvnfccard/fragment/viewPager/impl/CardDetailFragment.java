@@ -2,7 +2,6 @@ package com.github.devnied.emvnfccard.fragment.viewPager.impl;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,9 @@ import android.widget.TextView;
 import com.github.devnied.emvnfccard.EmvApplication;
 import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.activity.ScanActivity;
-import com.github.devnied.emvnfccard.activity.SimplePayActivity;
 import com.github.devnied.emvnfccard.activity.testActivity;
 import com.github.devnied.emvnfccard.fragment.viewPager.AbstractFragment;
 import com.github.devnied.emvnfccard.fragment.viewPager.IFragment;
-import com.github.devnied.emvnfccard.interfaces.ScanHandler;
 import com.github.devnied.emvnfccard.model.EmvCard;
 import com.github.devnied.emvnfccard.utils.CardUtils;
 import com.github.devnied.emvnfccard.utils.ViewUtils;
@@ -78,6 +75,7 @@ public class CardDetailFragment extends AbstractFragment {
 	private LinearLayout mBanner;
 
     private TextView mAmount;
+	private String price;
 
 	/**
 	 * Method used to create a new instance of the fragment
@@ -114,11 +112,15 @@ public class CardDetailFragment extends AbstractFragment {
 		mImageView = (ImageView) view.findViewById(R.id.type);
 		mExtendedLayout = (TableLayout) view.findViewById(R.id.extended_content);
 		mBanner = (LinearLayout) getActivity().findViewById(R.id.banner);
-        mAmount = (TextView) getActivity().findViewById(R.id.text_total);
 		// Set OCR-A typeface
 		ViewUtils.setTypeFace(EmvApplication.sTypeface, mCardNumber, mCardValidity);
 		// Update content
 		updateContent();
+
+		String ba = ((ScanActivity)this.getActivity()).getText();
+
+		mAmount = (TextView) getActivity().findViewById(R.id.text_total);
+		mAmount.setText(ba);
 
 
         /* TODO Log.d("TEST",((ScanActivity)this.getParentFragment().getActivity()).getText()); */
@@ -204,6 +206,9 @@ public class CardDetailFragment extends AbstractFragment {
 		mExtendedLayout.addView(v);
 	}
 
+
+
+
 	public void update(final EmvCard pCard) {
 		mCard = pCard;
 		updateContent();
@@ -221,11 +226,8 @@ public class CardDetailFragment extends AbstractFragment {
 		this.mCard = mCard;
 	}
 
-    /*
-    @Override
-    public void setAmount(String amount) {
-        this.mAmount.setText(amount);
-    } */
+
+
 
 
 }

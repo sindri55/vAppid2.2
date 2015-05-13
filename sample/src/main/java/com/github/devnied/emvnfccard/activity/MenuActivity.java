@@ -1,11 +1,9 @@
 package com.github.devnied.emvnfccard.activity;
 
-import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.View;
 
 import com.github.devnied.emvnfccard.R;
@@ -28,8 +26,13 @@ public class MenuActivity extends FragmentActivity
         /*
         Intent intent = new Intent(MenuActivity.this, RegisterUserActivity.class);
         startActivity(intent); //Kveikjum a activity.. */
-        Intent intent = new Intent(this, CartActivity.class);
+
+        /*Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);*/
+        Intent intent = new Intent(this, CreateInventoryActivity.class);
         startActivity(intent);
+        MenuActivity.this.finish();
+
     }
 
     public void logIn(View view) {
@@ -48,6 +51,8 @@ public class MenuActivity extends FragmentActivity
         // User touched the dialog's positive button
         Intent intent = new Intent(this, SimplePayActivity.class);
         startActivity(intent);
+        MenuActivity.this.finish();
+
     }
 
     @Override
@@ -59,5 +64,7 @@ public class MenuActivity extends FragmentActivity
     public void onDialogNeutralClick(DialogFragment dialog) {
         Intent intent = new Intent(this, RegisterUserActivity.class);
         startActivity(intent);
+        MenuActivity.this.finish();
+
     }
 }
