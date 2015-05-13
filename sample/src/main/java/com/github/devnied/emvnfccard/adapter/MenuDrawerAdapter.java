@@ -26,7 +26,7 @@ import java.util.Map.Entry;
  */
 public class MenuDrawerAdapter extends BaseAdapter {
 
-	public List<Entry<Integer, String>> mData = new ArrayList<Map.Entry<Integer, String>>(6);
+	public List<Entry<Integer, String>> mData = new ArrayList<Map.Entry<Integer, String>>(7);
 
 	private Context mContext;
 
@@ -44,6 +44,8 @@ public class MenuDrawerAdapter extends BaseAdapter {
 				.getStringArray(R.array.navigation_items)[4]));
 		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
 				.getStringArray(R.array.navigation_items)[5]));
+		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
+				.getStringArray(R.array.navigation_items)[6]));
 	}
 
 	@Override

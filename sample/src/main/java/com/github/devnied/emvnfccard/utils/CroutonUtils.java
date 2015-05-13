@@ -23,17 +23,10 @@ public final class CroutonUtils {
 	 *
 	 */
 	public static enum CoutonColor {
-		BLACK, ORANGE, GREEN, RED;
+		BLACK, ORANGE, GREEN, RED
 	}
 
-	/**
-	 * Method used to display message in an activity
-	 *
-	 * @param pActivity
-	 *            activity
-	 * @param msg
-	 * @param success
-	 */
+
 	public static void display(final Activity pActivity, final CharSequence msg, final CoutonColor coutonColor) {
 
 		int color = 0;

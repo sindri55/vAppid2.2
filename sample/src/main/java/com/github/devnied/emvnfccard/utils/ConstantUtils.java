@@ -25,6 +25,7 @@ public final class ConstantUtils {
 	public static final int INVERTORY = 3;
 	public static final int FUNDRAISER = 4;
 	public static final int ABOUT = 5;
+	public static final int LOGOUT = 6;
 
 	/**
 	 * Intent result code for billing
