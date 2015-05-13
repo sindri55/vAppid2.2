@@ -2,10 +2,12 @@ package com.github.devnied.emvnfccard.activity;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import com.github.devnied.emvnfccard.R;
+import com.github.devnied.emvnfccard.adapter.ListViewCreateInventoryAdapter;
 import com.github.devnied.emvnfccard.adapter.ListViewInventoryAdapter;
 import com.github.devnied.emvnfccard.adapter.ListViewRemovableAdapter;
 
@@ -16,6 +18,7 @@ import java.util.ArrayList;
  */
 public class CreateInventoryActivity extends ListActivity {
     ArrayList<String> listItems;
+    ListViewCreateInventoryAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         listItems = new ArrayList<String>();
@@ -24,25 +27,15 @@ public class CreateInventoryActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_inventory);
 
-        //Setting up the adapter for the cart itself
-        adapter = new ListViewRemovableAdapter(listItems, this);
+        //Setting up the adapter for the listview.. (list)..
+        adapter = new ListViewCreateInventoryAdapter(listItems, this);
         setListAdapter(adapter);
+    }
 
-        //Set up the inventory adapter..
-        inventoryItems = new ArrayList<String>();
-        inventoryItems.add("Bindi 3000");
-        inventoryItems.add("Slaufa 3500");
-        inventoryItems.add("Jakki 7500");
-        inventoryAdapter = new ListViewInventoryAdapter(inventoryItems, this);
-
-        ListView lwInventory = (ListView) findViewById(R.id.inventory_list);
-        lwInventory.setAdapter(inventoryAdapter);
-
-        //Tengja filter
-        EditText filter = (EditText) findViewById(R.id.edit_filter);
-        filter.addTextChangedListener(searchTextWatcher);
-        /*
-        EditText qty = (EditText) findViewById(R.id.quantity);
-        qty.setText("1"); */
+    public void addToList(View view) {
+        EditText name = (EditText) findViewById(R.id.edit_name);
+        EditText price = (EditText) findViewById(R.id.edit_price);
+        listItems.add(name.getText().toString() + " " + price.getText().toString());
+        adapter.notifyDataSetChanged();
     }
 }
