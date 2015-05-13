@@ -64,7 +64,6 @@ public class ListViewCreateInventoryAdapter extends BaseAdapter implements ListA
                 //do something
                 list.remove(position); //or some other task
                 notifyDataSetChanged();
-                ((CartActivity) context).recalculateTotal();
             }
         });
 

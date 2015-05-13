@@ -28,7 +28,10 @@ public class MenuActivity extends FragmentActivity
         /*
         Intent intent = new Intent(MenuActivity.this, RegisterUserActivity.class);
         startActivity(intent); //Kveikjum a activity.. */
-        Intent intent = new Intent(this, CartActivity.class);
+
+        /*Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);*/
+        Intent intent = new Intent(this, CreateInventoryActivity.class);
         startActivity(intent);
     }
 
