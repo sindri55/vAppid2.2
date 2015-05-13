@@ -12,6 +12,7 @@ import android.nfc.Tag;
 import android.nfc.tech.IsoDep;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -31,9 +32,9 @@ import com.github.devnied.emvnfccard.enums.EmvCardScheme;
 import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
 import com.github.devnied.emvnfccard.fragment.CartFragment;
-import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
+import com.github.devnied.emvnfccard.fragment.CreateInventoryFragment;
+import com.github.devnied.emvnfccard.fragment.FundraiserFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
-import com.github.devnied.emvnfccard.fragment.LogOutFragment;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
 import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.model.EmvCard;
@@ -91,6 +92,8 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 	/**
 	 * Drawer layout
+	 *
+	 *
 	 */
 	private DrawerLayout mDrawerLayout;
 	/**
@@ -116,6 +119,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 	 * Emv card
 	 */
 	private EmvCard mReadCard;
+	private ProgressDialog progress;
 
 	/**
 	 * Reference for refreshable content
@@ -144,7 +148,8 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
+        Intent intent = getIntent();
+		progress = new ProgressDialog(this);
 		Bundle extras = getIntent().getExtras();
 		if(extras == null) {
 			newString= null;
@@ -205,11 +210,12 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 		}
 
-       /* //Tharf ad access-a ur fragment..
+
+
+        /* Tharf ad access-a ur fragment..
         total = intent.getStringExtra(SimplePayActivity.EXTRA_PRICE);
         TextView text = (TextView) findViewById(R.id.text_total);
-        text.setText("Upphæð: " + total);
-        */
+        text.setText("Upphæð: " + total); */
 	}
 
 	/**
@@ -319,6 +325,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 					}
 				}
 
+
 				@Override
 				protected void onPostExecute(final Object result) {
 					// close dialog
@@ -331,12 +338,25 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 							if (StringUtils.isNotBlank(mCard.getCardNumber())) {
 
 								 mReadCard = mCard;
+								progress.setMessage("Greiðsla í vinnslu...");
+								progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+								progress.setIndeterminate(true);
+								progress.show();
 
-								Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)",
-										Toast.LENGTH_LONG).show();
+								final Handler handler = new Handler();
+								handler.postDelayed(new Runnable() {
+									public void run() {
+										Toast.makeText(getApplicationContext(), "Þú hefur greitt með kreditkortinu þínu!",
+												Toast.LENGTH_LONG).show();
 
+									}
+								}, 3000);
 								Intent intent = new Intent(ScanActivity.this, testActivity.class);
+
 								startActivity(intent);
+
+
+
 
 							} else if (mCard.isNfcLocked()) {
 								CroutonUtils.display(ScanActivity.this, getText(R.string.nfc_locked), CoutonColor.ORANGE);
@@ -353,6 +373,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 				}
 
 			}.execute();
+
 
 		}
 
@@ -476,28 +497,32 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 	@Override
 	public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
-		if (mLastSelectedMenu != position) {
+        if (mLastSelectedMenu != position) {
 			Fragment fragment = null;
 			switch (position) {
-				case ConstantUtils.CART:
-					fragment = new ViewPagerFragment();
-					refreshContent();
-					break;
-				case ConstantUtils.CONFIGURATION:
-					fragment = new ConfigurationFragment();
-					break;
-				case ConstantUtils.ABOUT:
-					fragment = new AboutFragment();
-					break;
-				case ConstantUtils.SIMPLEPAY:
-					fragment = new SimplePayFragment();
-					break;
-				case ConstantUtils.LOGOUT:
-					fragment = new LogOutFragment();
-					break;
-				default:
-					break;
+			case ConstantUtils.CARDS_DETAILS:
+				fragment = new ViewPagerFragment();
+				refreshContent();
+				break;
+			case ConstantUtils.SIMPLEPAY:
+				fragment = new SimplePayFragment();
+				break;
+			case ConstantUtils.CART:
+				fragment = new CartFragment();
+				break;
+			case ConstantUtils.INVERTORY:
+				fragment = new CreateInventoryFragment();
+				break;
+			case ConstantUtils.FUNDRAISER:
+				fragment = new FundraiserFragment();
+				break;
+			case ConstantUtils.ABOUT:
+				fragment = new AboutFragment();
+				break;
+			default:
+				break;
 			}
+            //Hendum basically thessu fragment inn i stad thess sem er fyrir..
 			if (fragment != null) {
 				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
 			}
@@ -506,40 +531,6 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 		mDrawerLayout.closeDrawer(mDrawerListView);
 	}
 
-  /*  ScanHandler fragment = null;
-	@Override
-	public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
-        if (mLastSelectedMenu != position) {
-            Fragment fragment = null;
-			switch (position) {
-                case ConstantUtils.CARDS_DETAILS:
-                    fragment = new ViewPagerFragment();
-                    refreshContent();
-                    break;
-                case ConstantUtils.CONFIGURATION:
-                    fragment = new ConfigurationFragment();
-                    break;
-                case ConstantUtils.ABOUT:
-                    fragment = new AboutFragment();
-                    break;
-				case ConstantUtils.SIMPLEPAY:
-					fragment = (ScanHandler)new SimplePayFragment();
-					break;
-				case ConstantUtils.LOGOUT:
-					fragment = (ScanHandler) new LogOutFragment();
-					break;
-                default:
-				break;
-			}
-            //Hendum basically thessu fragment inn i stad thess sem er fyrir..
-			if (fragment != null) {
-                //Added cast to fragment
-				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
-			}
-			mLastSelectedMenu = position;
-		}
-		mDrawerLayout.closeDrawer(mDrawerListView);
-	}*/
 
 	@Override
 	public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {

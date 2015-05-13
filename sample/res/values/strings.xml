@@ -76,12 +76,13 @@
     <string name="navigation_menu_close">Navigation menu close</string>
     <string-array name="navigation_items">
 
-        <item>Karfan</item>
-        <item>Fjáröflun</item>
+        <item>Lesari</item>
+        <item>Snjöll Borgun</item>
 
-        <item>Um okkur</item>
-        <item>Snjall Borgun</item>
-        <item>Skrá Út</item>
+        <item>Karfa</item>
+        <item>Búa Til Vörulista</item>
+        <item>Fjáröflun</item>
+        <item>Um Okkur</item>
     </string-array>
     
     <!-- Preferences -->

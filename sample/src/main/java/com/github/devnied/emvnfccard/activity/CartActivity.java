@@ -83,6 +83,11 @@ public class CartActivity extends ListActivity {
         startActivity(intent);
     }
 
+    public void quit(View view){
+        Intent i = new Intent(this, SimplePayActivity.class);
+        startActivity(i);
+    }
+
     /*
     public void addQty(View view){
         EditText qty = (EditText) findViewById(R.id.quantity);

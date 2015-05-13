@@ -95,7 +95,8 @@
         android:layout_height="wrap_content" />
 </LinearLayout>
 
-<Button android:id="@id/pay"
+    <Button
+        android:id="@id/pay"
         android:text="Greiða"
         android:textColor="@color/black"
         android:textSize="60sp"
@@ -103,6 +104,19 @@
         android:layout_width="fill_parent"
         android:layout_height="80dp"
         android:background="@drawable/buttonshapeorange"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"/>
+
+    <Button
+        android:id="@id/quit"
+        android:text="Hætta"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+
+        android:onClick="quit"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:background="#ffec001b"
         android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

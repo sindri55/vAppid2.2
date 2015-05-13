@@ -21,10 +21,11 @@ import com.github.devnied.emvnfccard.adapter.MenuDrawerAdapter;
 import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
 import com.github.devnied.emvnfccard.fragment.CartFragment;
-import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
+import com.github.devnied.emvnfccard.fragment.CreateInventoryFragment;
+import com.github.devnied.emvnfccard.fragment.FundraiserFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
-import com.github.devnied.emvnfccard.fragment.LogOutFragment;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
+import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.utils.ConstantUtils;
 
 import java.lang.ref.WeakReference;
@@ -221,21 +222,24 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         if (mLastSelectedMenu != position) {
             Fragment fragment = null;
             switch (position) {
-                case ConstantUtils.CART:
-                    fragment = new CartFragment();
+                case ConstantUtils.CARDS_DETAILS:
+                    fragment = new ViewPagerFragment();
                     refreshContent();
-                    break;
-                case ConstantUtils.CONFIGURATION:
-                    fragment = new ConfigurationFragment();
-                    break;
-                case ConstantUtils.ABOUT:
-                    fragment = new AboutFragment();
                     break;
                 case ConstantUtils.SIMPLEPAY:
                     fragment = new SimplePayFragment();
                     break;
-                case ConstantUtils.LOGOUT:
-                    fragment = new LogOutFragment();
+                case ConstantUtils.CART:
+                    fragment = new CartFragment();
+                    break;
+                case ConstantUtils.INVERTORY:
+                    fragment = new CreateInventoryFragment();
+                    break;
+                case ConstantUtils.FUNDRAISER:
+                    fragment = new FundraiserFragment();
+                    break;
+                case ConstantUtils.ABOUT:
+                    fragment = new AboutFragment();
                     break;
                 default:
                     break;

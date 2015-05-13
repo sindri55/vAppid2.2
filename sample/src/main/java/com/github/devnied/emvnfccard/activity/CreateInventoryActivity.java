@@ -2,12 +2,6 @@ package com.github.devnied.emvnfccard.activity;
 
 import android.app.ListActivity;
 import android.os.Bundle;
-import android.widget.EditText;
-import android.widget.ListView;
-
-import com.github.devnied.emvnfccard.R;
-import com.github.devnied.emvnfccard.adapter.ListViewInventoryAdapter;
-import com.github.devnied.emvnfccard.adapter.ListViewRemovableAdapter;
 
 import java.util.ArrayList;
 
@@ -18,7 +12,7 @@ public class CreateInventoryActivity extends ListActivity {
     ArrayList<String> listItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        listItems = new ArrayList<String>();
+     /*   listItems = new ArrayList<String>();
         //prices = new ArrayList<Integer>();
         //quantities = new ArrayList<Integer>();
         super.onCreate(savedInstanceState);

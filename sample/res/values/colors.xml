@@ -6,5 +6,6 @@
     <color name="valitor_blue">#6191A9</color>
     <color name="valitor_orange">#ED6316</color>
     <color name="buttonNumberWhite">#ffb3adaa</color>
+    <color name="button_red">#ffec001b</color>
 
 </resources>
