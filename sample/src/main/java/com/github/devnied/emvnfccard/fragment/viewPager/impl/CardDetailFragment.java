@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.github.devnied.emvnfccard.EmvApplication;
 import com.github.devnied.emvnfccard.R;
+import com.github.devnied.emvnfccard.activity.Global;
 import com.github.devnied.emvnfccard.activity.ScanActivity;
 import com.github.devnied.emvnfccard.activity.testActivity;
 import com.github.devnied.emvnfccard.fragment.viewPager.AbstractFragment;
@@ -58,6 +59,7 @@ public class CardDetailFragment extends AbstractFragment {
 	 * Card validity
 	 */
 	private TextView mCardValidity;
+	private TextView fundraiser;
 
 	/**
 	 * Image view
@@ -76,6 +78,8 @@ public class CardDetailFragment extends AbstractFragment {
 
     private TextView mAmount;
 	private String price;
+	Global global = Global.getInstance();
+
 
 	/**
 	 * Method used to create a new instance of the fragment
@@ -121,6 +125,13 @@ public class CardDetailFragment extends AbstractFragment {
 
 		mAmount = (TextView) getActivity().findViewById(R.id.text_total);
 		mAmount.setText(ba);
+
+		fundraiser = (TextView) getActivity().findViewById(R.id.fundraiser);
+
+		if(global.getFundraiser() != null){
+			fundraiser.setText("Þessi söluaðili er að selja fyrir: " + global.getFundraiser().toUpperCase());
+		}
+
 
 
         /* TODO Log.d("TEST",((ScanActivity)this.getParentFragment().getActivity()).getText()); */

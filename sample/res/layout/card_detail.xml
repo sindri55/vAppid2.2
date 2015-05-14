@@ -144,6 +144,13 @@
             android:gravity="bottom"
 
             >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fundraiser"
+                android:layout_marginLeft="20dp"
+                />
         <Button
             android:text="@string/button_entercardinfo"
             android:textColor="#FFFFFF"

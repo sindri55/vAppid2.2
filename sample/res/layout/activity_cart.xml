@@ -4,6 +4,11 @@
     android:fitsSystemWindows="true"
     android:layout_height="match_parent" >
 
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <!-- The navigation drawer -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,63 +29,6 @@
         android:id="@+id/inventory_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
-    <!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:id="@+id/edit_price"
-            android:layout_width="0dp"
-            android:layout_weight="50"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_amount"
-            android:inputType="number"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="12"
-            android:layout_height="wrap_content"
-            android:text="@string/button_plus"
-            android:onClick="addQty"/>
-        <EditText
-            android:id="@+id/quantity"
-            android:layout_width="0dp"
-            android:layout_weight="16"
-            android:layout_height="wrap_content"
-            android:inputType="number"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="12"
-            android:layout_height="wrap_content"
-            android:text="@string/button_minus"
-            android:onClick="subtractQty"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="10"
-            android:layout_height="wrap_content"
-            android:text="@string/text_qty"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        style="?android:buttonBarStyle">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_addtocart"
-            android:layout_gravity="start"
-            android:onClick="addToCart"
-            style="?android:buttonBarButtonStyle"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_pay"
-            android:onClick="goPay"
-            style="?android:buttonBarButtonStyle"/>
-    </LinearLayout> -->
 
     <TextView
         android:id="@+id/text_total"
@@ -94,6 +42,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="vertical">
 
     <Button
         android:id="@id/pay"
@@ -102,21 +55,34 @@
         android:textSize="60sp"
         android:onClick="goPay"
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/buttonshapeorange"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80dp"/>
+        />
 
     <Button
-        android:id="@id/quit"
-        android:text="Hætta"
-        android:textColor="@color/white"
+        android:id="@id/pay"
+        android:text="Hætta!"
+        android:textColor="@color/black"
         android:textSize="60sp"
-
         android:onClick="quit"
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:background="#ffec001b"
-        android:layout_alignParentBottom="true"/>
+        android:clickable="true"
+        android:layout_height="wrap_content"
+        android:background="@color/red_danger"
+        android:layout_alignParentBottom="true" />
+</LinearLayout>
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="fill_parent"
+        android:layout_gravity="start"
+        android:background="#333"
+        android:choiceMode="singleChoice"
+        android:divider="#666"
+        android:dividerHeight="1dp"
+        android:paddingLeft="15sp"
+        android:paddingRight="15sp" />
+    </android.support.v4.widget.DrawerLayout>
 
 </RelativeLayout>

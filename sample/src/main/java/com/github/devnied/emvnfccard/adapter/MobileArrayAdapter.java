@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.devnied.emvnfccard.R;
 
@@ -50,13 +49,9 @@ public class MobileArrayAdapter extends ArrayAdapter<String> {
         } else {
             imageView.setImageResource(R.drawable.kr);
         }
-        rowView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "You clicked " + values[position], Toast.LENGTH_LONG).show();
 
-            }
-        });
+
+
         return rowView;
 
     }

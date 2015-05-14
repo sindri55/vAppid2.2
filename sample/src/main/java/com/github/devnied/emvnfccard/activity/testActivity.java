@@ -30,9 +30,6 @@ public class testActivity extends FragmentActivity {
 
             }
         }, 1000);
-
-
-
     }
 
     public void doagain(View view) {

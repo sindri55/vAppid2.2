@@ -154,4 +154,5 @@
    <string name="hint_search">Leita</string>
     <string name="gera_aftur">Gera aftur!</string>
     <string name="kvittun">Kvittun?</string>
+    <string name="write_code">Sláðu inn kóðan</string>
 </resources>

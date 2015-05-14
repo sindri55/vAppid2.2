@@ -3,6 +3,10 @@
     android:layout_width="match_parent"
     android:fitsSystemWindows="true"
     android:layout_height="match_parent" >
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
@@ -65,7 +69,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="bottom">
     <Button android:id="@id/save_list"
         android:text="Vista lista"
         android:textColor="@color/black"
@@ -75,4 +83,31 @@
         android:layout_height="80dp"
         android:background="@drawable/buttonshapeorange"
         android:layout_alignParentBottom="true"/>
-</RelativeLayout>
+    <Button
+        android:id="@id/pay"
+        android:text="Hætta!"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        android:onClick="quit"
+        android:layout_width="fill_parent"
+        android:clickable="true"
+        android:layout_height="wrap_content"
+        android:background="@color/red_danger"
+        android:layout_alignParentBottom="true" />
+
+</LinearLayout>
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="fill_parent"
+        android:layout_gravity="start"
+        android:background="#333"
+        android:choiceMode="singleChoice"
+        android:divider="#666"
+        android:dividerHeight="1dp"
+        android:paddingLeft="15sp"
+        android:paddingRight="15sp" />
+</android.support.v4.widget.DrawerLayout>
+
+
+    </RelativeLayout>
