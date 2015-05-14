@@ -44,11 +44,12 @@
             android:background="@color/green_success"
             />
         <Button
-            android:id="@+id/resceve"
+            android:id="@+id/receipt"
             android:text="@string/kvittun"
             android:textColor="#FFFFFF"
             android:textSize="60sp"
-            android:clickable="false"
+            android:clickable="true"
+            android:onClick="sendReceipt"
             android:layout_width="fill_parent"
             android:layout_height="80dp"
             android:layout_gravity="bottom"

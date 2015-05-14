@@ -155,4 +155,6 @@
     <string name="gera_aftur">Gera aftur!</string>
     <string name="kvittun">Kvittun?</string>
     <string name="write_code">Sláðu inn kóðan</string>
+
+    <string name="button_send_receipt">Senda kvittun</string>
 </resources>

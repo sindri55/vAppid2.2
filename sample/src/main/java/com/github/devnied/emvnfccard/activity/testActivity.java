@@ -1,5 +1,7 @@
 package com.github.devnied.emvnfccard.activity;
 
+import android.app.DialogFragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,9 +13,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.adapter.MenuDrawerAdapter;
+import com.github.devnied.emvnfccard.dialog.LoginDialogFragment;
+import com.github.devnied.emvnfccard.dialog.ReceiptDialogFragment;
 import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
 import com.github.devnied.emvnfccard.fragment.CartFragment;
@@ -33,7 +38,8 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 /**
  * Created by Sindri on 30/04/15.
  */
-public class testActivity extends FragmentActivity implements AdapterView.OnItemClickListener {
+public class testActivity extends FragmentActivity
+                            implements AdapterView.OnItemClickListener, ReceiptDialogFragment.ReceiptDialogListener  {
     /**
      * last selected Menu
      */
@@ -181,6 +187,41 @@ public class testActivity extends FragmentActivity implements AdapterView.OnItem
     public void doagain(View view) {
         Intent intent = new Intent(this, SimplePayActivity.class);
         startActivity(intent);
+    }
+
+    public void sendReceipt(View view) {
+        ReceiptDialogFragment receiptDialog = new ReceiptDialogFragment();
+        receiptDialog.show(getFragmentManager(), "Receipt_Dialog");
+    }
+
+    // The dialog fragment receives a reference to this Activity through the
+    // Fragment.onAttach() callback, which it uses to call the following methods
+    // defined by the NoticeDialogFragment.NoticeDialogListener interface
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        Context context = getApplicationContext();
+        CharSequence text = "Kvittun send.";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+        final Context outerContext = this;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                Intent intent = new Intent(outerContext, SimplePayActivity.class);
+                startActivity(intent);
+                testActivity.this.finish();
+
+            }
+        }, 1500);
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        // User touched the dialog's negative button
     }
 
 

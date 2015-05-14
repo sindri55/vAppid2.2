@@ -72,7 +72,9 @@
 
 
         <activity
-            android:name=".activity.testActivity">
+            android:name=".activity.testActivity"
+            android:label="Greitt"
+            android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
         </activity>
 
         <activity
