@@ -70,6 +70,9 @@ public class CreateInventoryActivity extends FragmentActivity implements Adapter
      * ListView drawer
      */
     private ListView mDrawerListView;
+
+
+
     ArrayList<String> listItems;
     ListViewCreateInventoryAdapter adapter;
     @Override
