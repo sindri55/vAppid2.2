@@ -1,5 +1,7 @@
 package com.github.devnied.emvnfccard.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,13 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.GridView;
 
 import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.activity.Global;
 import com.github.devnied.emvnfccard.activity.SimplePayActivity;
 import com.github.devnied.emvnfccard.adapter.MobileArrayAdapter;
-import com.github.devnied.emvnfccard.utils.CroutonUtils;
 
 public class FundraiserFragment extends android.support.v4.app.Fragment{
     Global mGlobal = Global.getInstance();
@@ -35,6 +37,32 @@ public class FundraiserFragment extends android.support.v4.app.Fragment{
         View view = inflater.inflate(R.layout.fundgrid, container,false);
         grid = (GridView) view.findViewById(R.id.gridview);
         grid.setAdapter(new MobileArrayAdapter(getActivity(), values));
+        /*Button more = (Button) view.findViewById(R.id.button_search);
+
+        more.setOnClickListener(new View.OnClickListener(){
+                                   public void onClick(View view) {
+                                       AlertDialog alertDialog =  new AlertDialog.Builder(getActivity()).create();
+                                       alertDialog.setTitle("HI");
+                                       alertDialog.setMessage("This is my app");
+                                       final EditText input = new EditText(getActivity());
+                                       alertDialog.setView(input);
+                                       alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Leita", new DialogInterface.OnClickListener() {
+                                           @Override
+                                           public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                                           }
+                                       });
+                                       alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Hætta við", new DialogInterface.OnClickListener() {
+                                           @Override
+                                           public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                                           }
+                                       });
+                                        alertDialog.show();
+                                   }
+                                });*/
 
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -44,12 +72,41 @@ public class FundraiserFragment extends android.support.v4.app.Fragment{
                 if (position == 0) {
                     tmp = "Landsbjörg";
                 } else if (position == 1) {
-                    tmp = "Blái Naglinn";
+                    tmp = "Bláa Naglann";
                 } else if (position == 2) {
-                    tmp = "SÁÁ Álfurinn";
+                    tmp = "SÁÁ Álfinn";
                 }
-                mGlobal.setFundraiser(tmp);
-                CroutonUtils.display(getActivity(), "Þú valdir að fjárefla " + tmp, CroutonUtils.CoutonColor.ORANGE);
+                final String result = tmp;
+                AlertDialog.Builder alertdialogbuilder = new AlertDialog.Builder(getActivity());
+                final EditText input = new EditText(getActivity());
+                alertdialogbuilder
+                        .setMessage("Sláðu inn kóða")
+                        .setCancelable(true)
+                        .setView(input)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface alertDialog, int id) {
+                                final Handler handler = new Handler();
+                                handler.postDelayed(new Runnable() {
+                                    public void run() {
+
+                                        mGlobal.setFundraiser(result);
+                                        //CroutonUtils.display(getActivity(), "Þú valdir að styrkja " + result, CroutonUtils.CoutonColor.ORANGE);
+                                        Intent intent = new Intent(getActivity(), SimplePayActivity.class);
+                                        startActivity(intent);
+
+
+                                    }
+                                },0);
+
+                            }
+                        });
+                AlertDialog alertDialog = alertdialogbuilder.create();
+                alertDialog.show();
+
+
+
+                /*mGlobal.setFundraiser(tmp);
+                CroutonUtils.display(getActivity(), "Þú valdir að styrkja " + tmp, CroutonUtils.CoutonColor.ORANGE);
 
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -60,7 +117,7 @@ public class FundraiserFragment extends android.support.v4.app.Fragment{
 
 
                     }
-                }, 2000);
+                }, 2000);*/
 
             }
         });
