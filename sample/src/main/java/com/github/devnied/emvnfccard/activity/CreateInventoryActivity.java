@@ -122,7 +122,12 @@ public class CreateInventoryActivity extends FragmentActivity implements Adapter
 
     }
 
-
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, SimplePayActivity.class);
+        startActivity(intent);
+        CreateInventoryActivity.this.finish();
+    }
 
 
     @Override

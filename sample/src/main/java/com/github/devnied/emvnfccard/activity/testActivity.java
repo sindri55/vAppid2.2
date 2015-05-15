@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.adapter.MenuDrawerAdapter;
-import com.github.devnied.emvnfccard.dialog.LoginDialogFragment;
 import com.github.devnied.emvnfccard.dialog.ReceiptDialogFragment;
 import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
@@ -182,6 +181,13 @@ public class testActivity extends FragmentActivity
                 }
             }
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, SimplePayActivity.class);
+        startActivity(intent);
+        testActivity.this.finish();
     }
 
     public void doagain(View view) {

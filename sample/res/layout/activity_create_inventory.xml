@@ -84,17 +84,7 @@
         android:layout_height="80dp"
         android:background="@drawable/buttonshapeorange"
         android:layout_alignParentBottom="true"/>
-    <Button
-        android:id="@id/pay"
-        android:text="Hætta!"
-        android:textColor="@color/black"
-        android:textSize="60sp"
-        android:onClick="quit"
-        android:layout_width="fill_parent"
-        android:clickable="true"
-        android:layout_height="wrap_content"
-        android:background="@color/red_danger"
-        android:layout_alignParentBottom="true" />
+
 
 </LinearLayout>
     <LinearLayout
