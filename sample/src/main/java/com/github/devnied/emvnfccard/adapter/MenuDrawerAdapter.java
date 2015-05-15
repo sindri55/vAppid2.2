@@ -32,8 +32,9 @@ public class MenuDrawerAdapter extends BaseAdapter {
 
 	public MenuDrawerAdapter(final Context pContext) {
 		mContext = pContext;
+        /*
 		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_credit_card, pContext.getResources()
-				.getStringArray(R.array.navigation_items)[0]));
+				.getStringArray(R.array.navigation_items)[0])); */
 		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_gear, pContext.getResources()
 				.getStringArray(R.array.navigation_items)[1]));
 		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
