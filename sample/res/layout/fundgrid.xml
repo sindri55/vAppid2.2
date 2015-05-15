@@ -1,32 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Her getur þu tekið þatt i fjaröflunum hja hinum ymsu aðilum."
-        android:gravity="center"
-        android:background="#000000"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fjáraflanir"
+                android:gravity="center_horizontal"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="15dp"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:inputType="text"/>
 
-    <GridView
-    android:id="@+id/gridview"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:columnWidth="90dp"
-    android:numColumns="2"
-    android:verticalSpacing="10dp"
-    android:horizontalSpacing="10dp"
-    android:stretchMode="columnWidth"
-    android:gravity="center"
-    android:background="#000000">
-    </GridView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Veldu fjáröflun sem þú vilt taka þátt í eða leitaðu að þinni fjáröflun"
+                android:background="#FFFFFF"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp"
+                android:textColor="#000000"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnWidth="90dp"
+            android:numColumns="2"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:stretchMode="columnWidth"
+            android:gravity="center"
+            android:background="#FFFFFF">
+        </GridView>
     </LinearLayout>
+    <!--<LinearLayout
+        android:id="@+id/bottom_control_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Leita að fjáröflun"
+            android:background="#000000" />
+    </LinearLayout>-->
 
 </RelativeLayout>
