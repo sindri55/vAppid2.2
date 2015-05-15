@@ -30,7 +30,6 @@ import com.github.devnied.emvnfccard.fragment.FundraiserFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
 import com.github.devnied.emvnfccard.fragment.LogOutFragment;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
-import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.utils.ConstantUtils;
 
 import java.lang.ref.WeakReference;
@@ -158,20 +157,6 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
         CartActivity.this.finish();
     }
 
-    /*
-    public void addToCart(View view) {
-        EditText editText = (EditText) findViewById(R.id.edit_price);
-        Integer price = Integer.parseInt(editText.getText().toString());
-        prices.add(price);
-        editText.setText("");
-
-        EditText qty = (EditText) findViewById(R.id.quantity);
-        Integer quantity = Integer.parseInt(qty.getText().toString());
-        quantities.add(quantity);
-        qty.setText("1");
-        listItems.add(price.toString() + "x" + quantity.toString());
-        adapter.notifyDataSetChanged();
-    } */
 
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {

@@ -30,12 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
 
-    <TextView
-        android:id="@+id/text_total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/text_total"/>
+
 
     <ListView
         android:id="@+id/cart_list"
@@ -47,7 +42,13 @@
     android:layout_height="match_parent"
     android:gravity="bottom"
     android:orientation="vertical">
-
+    <TextView
+        android:id="@+id/text_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:text="@string/text_total"/>
     <Button
         android:id="@id/pay"
         android:text="Greiða"

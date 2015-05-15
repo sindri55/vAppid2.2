@@ -26,7 +26,6 @@ import com.github.devnied.emvnfccard.fragment.FundraiserFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
 import com.github.devnied.emvnfccard.fragment.LogOutFragment;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
-import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.utils.ConstantUtils;
 import com.github.devnied.emvnfccard.utils.CroutonUtils;
 
@@ -207,6 +206,8 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         }
 
     }
+
+
 
 
     @Override

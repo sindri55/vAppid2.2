@@ -38,15 +38,5 @@
         android:background="@drawable/buttonshapeorange"
         />
 
-    <Button
-        android:id="@+id/signup"
-        android:text="@string/button_register"
-        android:textColor="#FFFFFF"
-        android:textSize="60sp"
-        android:onClick="registerUser"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="bottom"
-        android:background="@drawable/buttonshapeblue"
-        />
+
 </LinearLayout>

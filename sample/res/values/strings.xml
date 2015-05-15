@@ -27,7 +27,7 @@
     <string name="viewpager_log">Log</string>
     
     <!-- Card Detail -->
-    <string name="paycard_back_text">Tap your NFC paycard \n to the back of your phone</string>
+    <string name="paycard_back_text">Vinsamlegast settu NFC greiðslukort við bak símans</string>
     <string name="extended_card_detail_title">Extended card details</string>
     <string name="card_representation_title">Card Representation</string>
     
@@ -79,7 +79,7 @@
         <!-- <item>Lesari</item> -->
         <item>Snjöll Borgun</item>
 
-        <item>Karfa</item>
+        <item>Vörulistinn minn</item>
         <item>Búa Til Vörulista</item>
         <item>Fjáröflun</item>
         <item>Um Okkur</item>
@@ -105,7 +105,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="button_login">Innskráning</string>
     <string name="button_register">Nýskráning</string>
-    <string name="title_activity_register_user">Register User</string>
+    <string name="title_activity_register_user">Nýskráning</string>
     <string name="label_name">Nafn:</string>
     <string name="label_ssid">Kennitala:</string>
     <string name="label_phone">Sími:</string>

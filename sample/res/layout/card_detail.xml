@@ -88,9 +88,20 @@
                 android:layout_height="100dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
-                android:background="@color/green_success"
+
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_horizontal"
+                    android:textSize="30dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Til Greiðslu: "/>
+
                 <TextView
                     android:id="@+id/text_total"
                     android:layout_width="wrap_content"
@@ -98,6 +109,7 @@
                     android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+
                     android:text="@string/text_total"/>
 
                 <TextView
@@ -108,7 +120,7 @@
                     android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Kr"/>
+                    android:text=" Kr"/>
 
             </LinearLayout>
 
@@ -148,7 +160,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/fundraiser"
-                android:layout_marginLeft="20dp"
+                android:textSize="25dp"
+                android:gravity="center_vertical"
                 />
             <Button
                 android:text="@string/button_entercardinfo"
