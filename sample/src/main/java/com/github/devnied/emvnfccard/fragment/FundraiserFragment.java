@@ -61,10 +61,8 @@ public class FundraiserFragment extends android.support.v4.app.Fragment{
 
                     }
                 }, 2000);
-
             }
         });
-
         return view;
     }
 
