@@ -59,11 +59,22 @@
         android:layout_alignParentBottom="true">
         <Button
             android:id="@+id/button_search"
+            android:text="Afskrá úr fjáröflun"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:onClick="goPay"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/buttondrawablered"
+            />
+        <!--<Button
+            android:id="@+id/button_search"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Hætta í fjáröflun"
             android:textColor="#000000"
-            android:background="#FFFFFF" />
+            android:background="@color/red_danger" />-->
     </LinearLayout>
 
 </RelativeLayout>
