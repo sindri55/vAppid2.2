@@ -1,6 +1,5 @@
 package com.github.devnied.emvnfccard.activity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -102,6 +101,13 @@ public class ManualPayByCardActivity extends FragmentActivity implements Adapter
         getActionBar().setDisplayShowHomeEnabled(true);
         getActionBar().setDisplayUseLogoEnabled(false);
         getActionBar().setDisplayShowCustomEnabled(true);
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, SimplePayActivity.class);
+        startActivity(intent);
+        ManualPayByCardActivity.this.finish();
     }
 
     @Override
