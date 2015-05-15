@@ -145,9 +145,18 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
         /*
         EditText qty = (EditText) findViewById(R.id.quantity);
         qty.setText("1"); */
+
+
+
     }
 
 
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, SimplePayActivity.class);
+        startActivity(intent);
+        CartActivity.this.finish();
+    }
 
     /*
     public void addToCart(View view) {

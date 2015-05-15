@@ -7,5 +7,6 @@
     <color name="valitor_orange">#ED6316</color>
     <color name="buttonNumberWhite">#ffb3adaa</color>
     <color name="button_red">#ffec001b</color>
+    <color name="main_background_color">#ffc5d3f5</color>
 
 </resources>

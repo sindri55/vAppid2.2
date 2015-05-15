@@ -149,6 +149,7 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
 
         erase.setOnClickListener(this);
 
+
     }
 
     @Override
@@ -206,6 +207,7 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         }
 
     }
+
 
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
