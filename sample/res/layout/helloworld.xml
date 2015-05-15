@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- android:fitsSystemWindows="true" a RL -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:fitsSystemWindows="true"
     android:layout_height="match_parent" >
-
 
 
     <android.support.v4.widget.DrawerLayout
@@ -12,17 +11,19 @@
         android:layout_height="match_parent" >
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
-
+    android:gravity="bottom">
+    <!-- android:weightSum="1" -->
+    <!--
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/cardui"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:layout_weight="3.42">
+        android:layout_weight="3.42"> -->
 
         <ImageView
             android:id="@+id/paid"
@@ -55,11 +56,10 @@
             android:layout_gravity="bottom"
             android:background="@drawable/buttonshapeorange"
             />
-    </TableLayout>
+   <!-- </TableLayout> -->
 
 
 </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,5 +82,7 @@
         android:dividerHeight="1dp"
         android:paddingLeft="15sp"
         android:paddingRight="15sp" />
+
 </android.support.v4.widget.DrawerLayout>
+
 </RelativeLayout>
