@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 
@@ -17,10 +18,13 @@ import com.github.devnied.emvnfccard.activity.Global;
 import com.github.devnied.emvnfccard.activity.SimplePayActivity;
 import com.github.devnied.emvnfccard.adapter.MobileArrayAdapter;
 
-public class FundraiserFragment extends android.support.v4.app.Fragment {
+import static android.view.View.INVISIBLE;
+
+public class FundraiserFragment extends android.support.v4.app.Fragment{
     Global mGlobal = Global.getInstance();
 
-    static final String[] values = new String[]{"Landsbjörg", "Blái Naglinn", "SÁÁ Álfurinn"};
+
+    static final String[] values = new String[] {"Landsbjörg", "Blái Naglinn", "SÁÁ Álfurinn"};
 
     /*ListView list;
     @Override
@@ -32,14 +36,41 @@ public class FundraiserFragment extends android.support.v4.app.Fragment {
     }*/
 
     GridView grid;
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fundgrid, container, false);
+        View view = inflater.inflate(R.layout.fundgrid, container,false);
         grid = (GridView) view.findViewById(R.id.gridview);
         grid.setAdapter(new MobileArrayAdapter(getActivity(), values));
+        final Button more = (Button) view.findViewById(R.id.button_search);
+        more.setVisibility(INVISIBLE);
+        if(mGlobal.getFundraiser() != null) {
+            more.setVisibility(View.VISIBLE);
+            more.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+                    alertDialog.setTitle("Úrskrańing");
+                    alertDialog.setMessage("Afskrá úr fjáröflun fyrir " + mGlobal.getFundraiser());
+                    alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Afskrá", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            mGlobal.setFundraiser(null);
+                            more.setVisibility(INVISIBLE);
+
+
+                        }
+                    });
+                    alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Hætta við", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                        }
+                    });
+                    alertDialog.show();
+
+                }
+            });
+        }
 
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -73,7 +104,7 @@ public class FundraiserFragment extends android.support.v4.app.Fragment {
 
 
                                     }
-                                }, 0);
+                                },0);
 
                             }
                         });
@@ -81,8 +112,29 @@ public class FundraiserFragment extends android.support.v4.app.Fragment {
                 alertDialog.show();
 
 
+
+                /*mGlobal.setFundraiser(tmp);
+                CroutonUtils.display(getActivity(), "Þú valdir að styrkja " + tmp, CroutonUtils.CoutonColor.ORANGE);
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+
+                        Intent intent = new Intent(getActivity(), SimplePayActivity.class);
+                        startActivity(intent);
+
+
+                    }
+                }, 2000);*/
+
             }
         });
+
         return view;
     }
+
+
+
+
 }
+
