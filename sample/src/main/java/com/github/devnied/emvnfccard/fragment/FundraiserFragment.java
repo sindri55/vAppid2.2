@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 
@@ -17,8 +18,11 @@ import com.github.devnied.emvnfccard.activity.Global;
 import com.github.devnied.emvnfccard.activity.SimplePayActivity;
 import com.github.devnied.emvnfccard.adapter.MobileArrayAdapter;
 
+import static android.view.View.INVISIBLE;
+
 public class FundraiserFragment extends android.support.v4.app.Fragment{
     Global mGlobal = Global.getInstance();
+
 
     static final String[] values = new String[] {"Landsbjörg", "Blái Naglinn", "SÁÁ Álfurinn"};
 
@@ -37,32 +41,36 @@ public class FundraiserFragment extends android.support.v4.app.Fragment{
         View view = inflater.inflate(R.layout.fundgrid, container,false);
         grid = (GridView) view.findViewById(R.id.gridview);
         grid.setAdapter(new MobileArrayAdapter(getActivity(), values));
-        /*Button more = (Button) view.findViewById(R.id.button_search);
-
-        more.setOnClickListener(new View.OnClickListener(){
-                                   public void onClick(View view) {
-                                       AlertDialog alertDialog =  new AlertDialog.Builder(getActivity()).create();
-                                       alertDialog.setTitle("HI");
-                                       alertDialog.setMessage("This is my app");
-                                       final EditText input = new EditText(getActivity());
-                                       alertDialog.setView(input);
-                                       alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Leita", new DialogInterface.OnClickListener() {
-                                           @Override
-                                           public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                                           }
-                                       });
-                                       alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Hætta við", new DialogInterface.OnClickListener() {
-                                           @Override
-                                           public void onClick(DialogInterface dialogInterface, int i) {
+        final Button more = (Button) view.findViewById(R.id.button_search);
+        more.setVisibility(INVISIBLE);
+        if(mGlobal.getFundraiser() != null) {
+            more.setVisibility(View.VISIBLE);
+            more.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+                    alertDialog.setTitle("Úrskrańing");
+                    alertDialog.setMessage("Afskrá úr fjáröflun fyrir " + mGlobal.getFundraiser());
+                    alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Afskrá", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            mGlobal.setFundraiser(null);
+                            more.setVisibility(INVISIBLE);
 
 
-                                           }
-                                       });
-                                        alertDialog.show();
-                                   }
-                                });*/
+                        }
+                    });
+                    alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Hætta við", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                        }
+                    });
+                    alertDialog.show();
+
+                }
+            });
+        }
 
 
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
