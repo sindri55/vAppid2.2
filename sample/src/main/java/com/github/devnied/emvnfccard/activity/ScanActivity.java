@@ -209,12 +209,20 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 	/**
 	 * Method used to back to home screen
 	 */
+    /*
 	public void backToHomeScreen() {
 		// Select first menu
 		mDrawerListView.performItemClick(mDrawerListView, 0, mDrawerListView.getItemIdAtPosition(0));
 		// Close Drawer
 		mDrawerLayout.closeDrawer(mDrawerListView);
-	}
+	}*/
+    public void backToHomeScreen() {
+        Fragment fragment = new ViewPagerFragment();
+        refreshContent();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
+        mLastSelectedMenu = 0;
+        mDrawerLayout.closeDrawer(mDrawerListView);
+    }
 
 	@Override
 	protected void onResume() {
@@ -487,10 +495,11 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
         if (mLastSelectedMenu != position) {
 			Fragment fragment = null;
 			switch (position) {
+            /*
 			case ConstantUtils.CARDS_DETAILS:
 				fragment = new ViewPagerFragment();
 				refreshContent();
-				break;
+				break; */
 			case ConstantUtils.SIMPLEPAY:
 				fragment = new SimplePayFragment();
 				break;

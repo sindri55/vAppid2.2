@@ -76,7 +76,7 @@
     <string name="navigation_menu_close">Navigation menu close</string>
     <string-array name="navigation_items">
 
-        <item>Lesari</item>
+        <!-- <item>Lesari</item> -->
         <item>Snjöll Borgun</item>
 
         <item>Karfa</item>

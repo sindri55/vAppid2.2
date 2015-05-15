@@ -182,10 +182,11 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
         if (mLastSelectedMenu != position) {
             Fragment fragment = null;
             switch (position) {
+                /*
                 case ConstantUtils.CARDS_DETAILS:
                     fragment = new ViewPagerFragment();
                     refreshContent();
-                    break;
+                    break; */
                 case ConstantUtils.SIMPLEPAY:
                     fragment = new SimplePayFragment();
                     break;
