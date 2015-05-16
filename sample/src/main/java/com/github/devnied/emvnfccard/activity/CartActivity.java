@@ -226,7 +226,16 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
     }
 
     public void goPay(View view) {
+        /*
         Intent intent = new Intent(this, ScanActivity.class);
+            intent.putExtra("price", price);
+            startActivity(intent);
+         */
+        String priceText = ((TextView) findViewById(R.id.text_total)).getText().toString();
+        String[] prices = priceText.split(" ");
+        String price = prices[prices.length - 1];
+        Intent intent = new Intent(this, ScanActivity.class);
+        intent.putExtra("price", price);
         startActivity(intent);
         CartActivity.this.finish();
     }

@@ -120,7 +120,6 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         getActionBar().setDisplayUseLogoEnabled(false);
         getActionBar().setDisplayShowCustomEnabled(true);
 
-
         oneButton = (Button) findViewById(R.id.numberOne);
         twoButton = (Button) findViewById(R.id.numberTwo);
         threeButton = (Button) findViewById(R.id.numberThree);
