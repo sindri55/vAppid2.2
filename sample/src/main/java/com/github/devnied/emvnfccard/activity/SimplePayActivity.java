@@ -26,7 +26,6 @@ import com.github.devnied.emvnfccard.fragment.FundraiserFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
 import com.github.devnied.emvnfccard.fragment.LogOutFragment;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
-import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.utils.ConstantUtils;
 import com.github.devnied.emvnfccard.utils.CroutonUtils;
 
@@ -121,7 +120,6 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         getActionBar().setDisplayUseLogoEnabled(false);
         getActionBar().setDisplayShowCustomEnabled(true);
 
-
         oneButton = (Button) findViewById(R.id.numberOne);
         twoButton = (Button) findViewById(R.id.numberTwo);
         threeButton = (Button) findViewById(R.id.numberThree);
@@ -209,6 +207,8 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
     }
 
 
+
+
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         if (mLastSelectedMenu == ConstantUtils.ABOUT) {
@@ -237,10 +237,11 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         if (mLastSelectedMenu != position) {
             Fragment fragment = null;
             switch (position) {
+                /*
                 case ConstantUtils.CARDS_DETAILS:
                     fragment = new ViewPagerFragment();
                     refreshContent();
-                    break;
+                    break; */
                 case ConstantUtils.SIMPLEPAY:
                     fragment = new SimplePayFragment();
                     break;

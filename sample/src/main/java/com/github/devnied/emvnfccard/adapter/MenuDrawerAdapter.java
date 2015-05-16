@@ -26,7 +26,8 @@ import java.util.Map.Entry;
  */
 public class MenuDrawerAdapter extends BaseAdapter {
 
-	public List<Entry<Integer, String>> mData = new ArrayList<Map.Entry<Integer, String>>(7);
+	//public List<Entry<Integer, String>> mData = new ArrayList<Map.Entry<Integer, String>>(7);
+    public List<Entry<Integer, String>> mData = new ArrayList<Map.Entry<Integer, String>>(6);
 
 	private Context mContext;
 
@@ -34,7 +35,7 @@ public class MenuDrawerAdapter extends BaseAdapter {
 		mContext = pContext;
         /*
 		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_credit_card, pContext.getResources()
-				.getStringArray(R.array.navigation_items)[0])); */
+				.getStringArray(R.array.navigation_items)[0]));
 		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_gear, pContext.getResources()
 				.getStringArray(R.array.navigation_items)[1]));
 		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
@@ -46,7 +47,19 @@ public class MenuDrawerAdapter extends BaseAdapter {
 		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
 				.getStringArray(R.array.navigation_items)[5]));
 		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
-				.getStringArray(R.array.navigation_items)[6]));
+				.getStringArray(R.array.navigation_items)[6])); */
+        mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_gear, pContext.getResources()
+                .getStringArray(R.array.navigation_items)[0]));
+        mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
+                .getStringArray(R.array.navigation_items)[1]));
+        mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
+                .getStringArray(R.array.navigation_items)[2]));
+        mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
+                .getStringArray(R.array.navigation_items)[3]));
+        mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
+                .getStringArray(R.array.navigation_items)[4]));
+        mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
+                .getStringArray(R.array.navigation_items)[5]));
 	}
 
 	@Override

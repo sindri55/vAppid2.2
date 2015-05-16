@@ -122,10 +122,11 @@ public class testActivity extends FragmentActivity
         if (mLastSelectedMenu != position) {
             Fragment fragment = null;
             switch (position) {
+                /*
                 case ConstantUtils.CARDS_DETAILS:
                     fragment = new ViewPagerFragment();
                     refreshContent();
-                    break;
+                    break; */
                 case ConstantUtils.SIMPLEPAY:
                     fragment = new SimplePayFragment();
                     break;

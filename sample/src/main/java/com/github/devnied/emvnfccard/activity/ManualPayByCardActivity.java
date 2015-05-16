@@ -115,10 +115,11 @@ public class ManualPayByCardActivity extends FragmentActivity implements Adapter
         if (mLastSelectedMenu != position) {
             Fragment fragment = null;
             switch (position) {
+                /*
                 case ConstantUtils.CARDS_DETAILS:
                     fragment = new ViewPagerFragment();
                     refreshContent();
-                    break;
+                    break; */
                 case ConstantUtils.SIMPLEPAY:
                     fragment = new SimplePayFragment();
                     break;
