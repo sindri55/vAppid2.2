@@ -15,6 +15,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="16dp"
+    android:layout_marginTop="40dp"
     android:paddingRight="16dp">
 
 
@@ -43,7 +44,10 @@
         android:id="@+id/form_cc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,12 +87,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="cccpayed"
-            android:text="@string/button_pay_manual"
-            android:layout_gravity="right"/>
+        />
     </LinearLayout>
 
     <LinearLayout
@@ -122,12 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:onClick="cccpayed"
-            android:layout_height="wrap_content"
-            android:text="@string/button_pay_manual"
-            android:layout_gravity="right"/>
+
     </LinearLayout>
 </LinearLayout>
 
@@ -139,6 +133,17 @@
             android:id="@+id/content_frame"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
+        <Button
+            android:text="@string/button_entercardinfo"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:onClick="cccpayed"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/buttonshapeorange"
+            />
+
     </LinearLayout>
 
     <!-- the navigation drawer -->

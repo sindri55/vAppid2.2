@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ import com.github.devnied.emvnfccard.adapter.MobileArrayAdapter;
 
 import static android.view.View.INVISIBLE;
 
-public class FundraiserFragment extends android.support.v4.app.Fragment{
+public class FundraiserFragment extends Fragment {
     Global mGlobal = Global.getInstance();
 
 
@@ -34,6 +35,8 @@ public class FundraiserFragment extends android.support.v4.app.Fragment{
         list.setAdapter(new MobileArrayAdapter(getActivity(), values));
         return view;
     }*/
+
+
 
     GridView grid;
     @Override

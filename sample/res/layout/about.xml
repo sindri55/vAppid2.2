@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp"
+
         >
 
         <LinearLayout
@@ -16,6 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
+            android:layout_marginTop="40dp"
             android:weightSum="1">
 
             <TextView

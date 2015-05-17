@@ -171,6 +171,8 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
         }
     }
 
+
+
     @Override
     public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
         if (mLastSelectedMenu != position) {
