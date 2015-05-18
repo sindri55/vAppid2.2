@@ -101,7 +101,7 @@
                     android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Til greiðslu: "/>
+                    android:text="Til Greiðslu: "/>
 
                 <TextView
                     android:id="@+id/text_total"
