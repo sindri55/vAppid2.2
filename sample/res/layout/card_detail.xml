@@ -101,7 +101,7 @@
                     android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Til Greiðslu: "/>
+                    android:text="Til greiðslu: "/>
 
                 <TextView
                     android:id="@+id/text_total"
@@ -161,7 +161,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/fundraiser"
-                android:textSize="25dp"
+                android:textSize="15dp"
                 android:gravity="center_vertical"
                 />
             <Button
