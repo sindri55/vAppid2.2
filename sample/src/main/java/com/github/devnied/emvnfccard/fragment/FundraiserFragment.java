@@ -24,7 +24,7 @@ public class FundraiserFragment extends android.support.v4.app.Fragment{
     Global mGlobal = Global.getInstance();
 
 
-    static final String[] values = new String[] {"Landsbjörg", "Blái Naglinn", "SÁÁ Álfurinn"};
+    static final String[] values = new String[] {"Slysavarnafélagið Landsbjörg", "Blái Naglinn", "SÁÁ Álfurinn"};
 
     /*ListView list;
     @Override
@@ -78,7 +78,7 @@ public class FundraiserFragment extends android.support.v4.app.Fragment{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String tmp = null;
                 if (position == 0) {
-                    tmp = "Landsbjörg";
+                    tmp = "Slysavarnafélagið Landsbjörg";
                 } else if (position == 1) {
                     tmp = "Bláa Naglann";
                 } else if (position == 2) {
