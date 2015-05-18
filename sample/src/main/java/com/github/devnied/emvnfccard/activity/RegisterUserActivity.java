@@ -1,6 +1,7 @@
 package com.github.devnied.emvnfccard.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -18,6 +19,7 @@ public class RegisterUserActivity extends Activity {
 
 
     public void finishRegistration(View view) {
-        finish();
+        Intent intent = (new Intent(this, MenuActivity.class ));
+        startActivity(intent);
     }
 }

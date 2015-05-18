@@ -93,7 +93,6 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         /* Sidebar menu */
         // get ListView defined in activity_main.xml
         mDrawerListView = (ListView) findViewById(R.id.left_drawer);
-
         // Set the adapter for the list view
         mMenuAdapter = new MenuDrawerAdapter(this);
         mDrawerListView.setAdapter(mMenuAdapter);
@@ -119,7 +118,6 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         getActionBar().setDisplayShowHomeEnabled(true);
         getActionBar().setDisplayUseLogoEnabled(false);
         getActionBar().setDisplayShowCustomEnabled(true);
-
 
         oneButton = (Button) findViewById(R.id.numberOne);
         twoButton = (Button) findViewById(R.id.numberTwo);

@@ -19,9 +19,17 @@ public class LoginActivity extends Activity {
 
 
     public void doLogIn(View view) {
-        Intent intent = new Intent(this, MainMenuActivity.class);
+        Intent intent = new Intent(this, SimplePayActivity.class);
         startActivity(intent);
         LoginActivity.this.finish();
 
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        LoginActivity.this.finish();
+    }
+
 }

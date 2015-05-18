@@ -2,18 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:fitsSystemWindows="true"
-
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
 
 
     <android.support.v4.widget.DrawerLayout
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-        >
+    android:layout_height="match_parent">
 
 
     <!-- The main content view -->
@@ -23,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="10dp">
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -210,7 +206,7 @@
             <Button
                 android:id="@+id/quickpay"
                 android:text="Greiða"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="60sp"
                 android:onClick="goPay"
                 android:layout_width="fill_parent"

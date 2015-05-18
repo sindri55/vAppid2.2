@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.github.devnied.emvnfccard.EmvApplication;
@@ -87,6 +88,8 @@ public class MenuDrawerAdapter extends BaseAdapter {
 		TextView menuText = ViewHolder.get(v, R.id.menu_item_text);
 		ImageView menuIcon = ViewHolder.get(v, R.id.menu_item_icon);
 
+
+		ListView mDrawerListView;
 		// Get element
 		@SuppressWarnings("unchecked")
 		Entry<Integer, String> data = (Entry<Integer, String>) getItem(position);

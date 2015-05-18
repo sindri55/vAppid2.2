@@ -39,7 +39,7 @@ public final class CroutonUtils {
 				color = pActivity.getResources().getColor(R.color.red_danger);
 				break;
 		case ORANGE:
-			color = pActivity.getResources().getColor(R.color.orange);
+			color = pActivity.getResources().getColor(R.color.valitor_orange);
 			break;
 		case BLACK:
 		default:

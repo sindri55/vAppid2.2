@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:gravity="center"
-        android:background="#FFFFBB33"
+        android:background="@color/valitor_orange"
         android:text="Kvittun"/>
     <EditText
         android:id="@+id/email"

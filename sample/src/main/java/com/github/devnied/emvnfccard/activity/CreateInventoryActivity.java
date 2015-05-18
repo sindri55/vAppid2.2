@@ -26,8 +26,8 @@ import com.github.devnied.emvnfccard.fragment.FundraiserFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
 import com.github.devnied.emvnfccard.fragment.LogOutFragment;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
-import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.utils.ConstantUtils;
+import com.github.devnied.emvnfccard.utils.CroutonUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -86,6 +86,7 @@ public class CreateInventoryActivity extends FragmentActivity implements Adapter
         //Setting up the adapter for the listview.. (list)..
         adapter = new ListViewCreateInventoryAdapter(listItems, this);
         ListView lwCreateInventoryList = (ListView) findViewById(R.id.create_inventory_list);
+        lwCreateInventoryList.setBackgroundColor(getResources().getColor(R.color.valitor_lightorange));
         lwCreateInventoryList.setAdapter(adapter);
         //setListAdapter(adapter);
 
@@ -210,6 +211,15 @@ public class CreateInventoryActivity extends FragmentActivity implements Adapter
 
     public void saveList(View view) {
 
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+
+                CroutonUtils.display(CreateInventoryActivity.this, "Listi vistaður", CroutonUtils.CoutonColor.GREEN);
+
+
+            }
+        }, 1000);
 
         Context context = getApplicationContext();
         CharSequence text = "Listi vistaður.";
@@ -223,7 +233,7 @@ public class CreateInventoryActivity extends FragmentActivity implements Adapter
             @Override
             public void run() {
 
-                Intent i = new Intent(outerContext, SimplePayActivity.class);
+                Intent i = new Intent(outerContext, CartActivity.class);
                 startActivity(i);
                 CreateInventoryActivity.this.finish();
 
@@ -231,10 +241,7 @@ public class CreateInventoryActivity extends FragmentActivity implements Adapter
         }, 1500);
     }
 
-    public void quit(View view){
-        Intent i = new Intent(this, SimplePayActivity.class);
-        startActivity(i);
-        CreateInventoryActivity.this.finish();
 
-    }
+
+
 }

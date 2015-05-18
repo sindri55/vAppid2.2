@@ -1,5 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="16dp"
@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/label_email"
+        android:layout_marginTop="40dp"
         android:gravity="center"/>
 
     <EditText
@@ -22,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/label_pass"
+        android:layout_marginTop="20dp"
         android:gravity="center"/>
 
     <EditText
@@ -30,11 +32,22 @@
         android:layout_height="wrap_content"
         android:inputType="numberPassword"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_login"
-        android:layout_gravity="end"
-        android:onClick="doLogIn"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="@string/button_login"
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:onClick="doLogIn"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/buttonshapeorange"
+            />
+    </LinearLayout>
+
+
 
 </LinearLayout>

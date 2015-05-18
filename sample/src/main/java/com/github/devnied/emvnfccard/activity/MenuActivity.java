@@ -21,19 +21,6 @@ public class MenuActivity extends FragmentActivity
         setContentView(R.layout.activity_start);
     }
 
-    public void registerUser(View view) {
-        //Okkar context.. svo class a activity sem tekur vid..
-        /*
-        Intent intent = new Intent(MenuActivity.this, RegisterUserActivity.class);
-        startActivity(intent); //Kveikjum a activity.. */
-
-        /*Intent intent = new Intent(this, CartActivity.class);
-        startActivity(intent);*/
-        Intent intent = new Intent(this, CreateInventoryActivity.class);
-        startActivity(intent);
-        MenuActivity.this.finish();
-
-    }
 
     public void logIn(View view) {
         /*

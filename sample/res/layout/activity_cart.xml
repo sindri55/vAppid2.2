@@ -17,7 +17,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:layout_above="@+id/pay"
-    android:layout_marginTop="40dp">
+    android:layout_marginTop="10dp">
 
     <EditText
         android:id="@+id/edit_filter"
@@ -30,7 +30,9 @@
     <ListView
         android:id="@+id/inventory_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content">
+
+    </ListView>
 
 
 
@@ -54,7 +56,7 @@
     <Button
         android:id="@id/pay"
         android:text="Greiða"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="60sp"
         android:onClick="goPay"
         android:layout_width="fill_parent"

@@ -60,7 +60,7 @@
         <Button
             android:id="@+id/button_search"
             android:text="Afskrá úr fjáröflun"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="28sp"
             android:onClick="goPay"
             android:layout_width="fill_parent"

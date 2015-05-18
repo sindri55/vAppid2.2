@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.devnied.emvnfccard.R;
+import com.github.devnied.emvnfccard.activity.Global;
 import com.github.devnied.emvnfccard.activity.MenuActivity;
 
 /**
@@ -15,11 +16,14 @@ import com.github.devnied.emvnfccard.activity.MenuActivity;
  */
 public class LogOutFragment extends Fragment{
 
+    Global global = Global.getInstance();
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.activity_simple_pay, container, false);
 
         Intent intent = new Intent(getActivity() ,MenuActivity.class);
+
+        global.setFundraiser(null);
         startActivity(intent);
 
         return rootView;

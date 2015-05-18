@@ -126,6 +126,7 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
         setListAdapter(adapter); */
         adapter = new ListViewRemovableAdapter(listItems, this, prices, quantities);
         ListView lwCartItems = (ListView) findViewById(R.id.cart_list);
+        lwCartItems.setBackgroundColor(getResources().getColor(R.color.valitor_orange));
         lwCartItems.setAdapter(adapter);
 
         //Set up the inventory adapter..
@@ -136,6 +137,7 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
         inventoryAdapter = new ListViewInventoryAdapter(inventoryItems, this);
 
         ListView lwInventory = (ListView) findViewById(R.id.inventory_list);
+        lwCartItems.setBackgroundColor(getResources().getColor(R.color.valitor_lightorange));
         lwInventory.setAdapter(inventoryAdapter);
 
         //Tengja filter
@@ -228,7 +230,16 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
     }
 
     public void goPay(View view) {
+        /*
         Intent intent = new Intent(this, ScanActivity.class);
+            intent.putExtra("price", price);
+            startActivity(intent);
+         */
+        String priceText = ((TextView) findViewById(R.id.text_total)).getText().toString();
+        String[] prices = priceText.split(" ");
+        String price = prices[prices.length - 1];
+        Intent intent = new Intent(this, ScanActivity.class);
+        intent.putExtra("price", price);
         startActivity(intent);
         CartActivity.this.finish();
     }

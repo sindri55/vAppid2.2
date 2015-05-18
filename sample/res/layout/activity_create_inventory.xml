@@ -60,9 +60,10 @@
 
     <Button
         android:id="@+id/button_add_to_list"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Bæta á lista"
+        android:background="@color/valitor_orange"
         android:layout_gravity="right"
         android:onClick="addToList"/>
 
