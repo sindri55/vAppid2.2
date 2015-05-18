@@ -40,7 +40,7 @@ public class MobileArrayAdapter extends ArrayAdapter<String> {
 
         //System.out.println(s);
 
-        if (s.equals("Landsbjörg")) {
+        if (s.equals("Slysavarnafélagið Landsbjörg")) {
             imageView.setImageResource(R.drawable.landsbjorg);
         } else if (s.equals("Blái Naglinn")) {
             imageView.setImageResource(R.drawable.blai);
