@@ -59,6 +59,9 @@ public class ListViewInventoryAdapter extends BaseAdapter implements ListAdapter
             view = inflater.inflate(R.layout.listview_inventory, null);
         }
 
+
+
+
         //Handle TextView and display string from your list
         /*
         TextView listItemText = (TextView)view.findViewById(R.id.list_item);

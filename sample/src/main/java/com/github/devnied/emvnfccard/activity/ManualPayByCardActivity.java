@@ -206,7 +206,7 @@ public class ManualPayByCardActivity extends FragmentActivity implements Adapter
     }
 
     public void cccpayed(View view) {
-        progress.setMessage("Greiðsla í vinnslu...");
+        progress.setMessage("Processing payment...");
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progress.setIndeterminate(true);
         progress.show();

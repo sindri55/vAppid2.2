@@ -80,7 +80,7 @@ public class testActivity extends FragmentActivity
         handler.postDelayed(new Runnable() {
             public void run() {
 
-                CroutonUtils.display(testActivity.this, "Greiðsla hefur verið framkvæmd!", CroutonUtils.CoutonColor.GREEN);
+                CroutonUtils.display(testActivity.this, "Payment complete!", CroutonUtils.CoutonColor.GREEN);
 
 
             }
@@ -207,7 +207,7 @@ public class testActivity extends FragmentActivity
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         Context context = getApplicationContext();
-        CharSequence text = "Kvittun send.";
+        CharSequence text = "Receipt sent";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);

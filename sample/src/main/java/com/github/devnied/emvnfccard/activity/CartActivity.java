@@ -14,9 +14,12 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.adapter.ListViewInventoryAdapter;
@@ -38,6 +41,15 @@ import java.util.ArrayList;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 
 public class CartActivity extends FragmentActivity implements AdapterView.OnItemClickListener{
+
+
+
+
+    GridView gridView;
+
+
+
+
     ArrayList<Integer> prices;
     ArrayList<Integer> quantities; //1 to 1 correspondance with prices
     ArrayList<String> listItems;
@@ -84,6 +96,28 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+        //Set up the inventory adapter..
+        inventoryItems = new ArrayList<String>();
+        inventoryItems.add("Mars     200kr");
+        inventoryItems.add("Snickers 230kr");
+        inventoryItems.add("7 Up     250kr");
+        inventoryItems.add("Coca Cola 250kr");
+        inventoryItems.add("Pepsi 250kr");
+        inventoryItems.add("Montein Dew 250kr");
+        inventoryItems.add("Cristal    Red      270kr");
+        inventoryItems.add("Cristal    Blue      270kr");
+        inventoryItems.add("Juice Orage 300kr");
+        inventoryItems.add("Juice Apple 300kr");
+
+
+        inventoryAdapter = new ListViewInventoryAdapter(inventoryItems, this);
+        gridView = (GridView) findViewById(R.id.gridView1);
+        gridView.setAdapter(inventoryAdapter);
+
+
+
+
+
         /* Sidebar menu */
         // get ListView defined in activity_main.xml
         mDrawerListView = (ListView) findViewById(R.id.left_drawer);
@@ -125,21 +159,16 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
         adapter = new ListViewRemovableAdapter(listItems, this, prices, quantities);
         setListAdapter(adapter); */
         adapter = new ListViewRemovableAdapter(listItems, this, prices, quantities);
-        ListView lwCartItems = (ListView) findViewById(R.id.cart_list);
+       /* ListView lwCartItems = (ListView) findViewById(R.id.cart_list);
         lwCartItems.setBackgroundColor(getResources().getColor(R.color.valitor_orange));
         lwCartItems.setAdapter(adapter);
 
-        //Set up the inventory adapter..
-        inventoryItems = new ArrayList<String>();
-        inventoryItems.add("Bindi 3000");
-        inventoryItems.add("Slaufa 3500");
-        inventoryItems.add("Jakki 7500");
-        inventoryAdapter = new ListViewInventoryAdapter(inventoryItems, this);
+
 
         ListView lwInventory = (ListView) findViewById(R.id.inventory_list);
         lwCartItems.setBackgroundColor(getResources().getColor(R.color.valitor_lightorange));
         lwInventory.setAdapter(inventoryAdapter);
-
+*/
         //Tengja filter
         EditText filter = (EditText) findViewById(R.id.edit_filter);
         filter.addTextChangedListener(searchTextWatcher);
@@ -276,7 +305,7 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
 
         TextView total = (TextView) findViewById(R.id.text_total);
         currentTotal += priceBeingAdded;
-        total.setText("Heildarupphæð: " + currentTotal.toString());
+        total.setText("Total amount: " + currentTotal.toString());
 
         adapter.notifyDataSetChanged();
     }
@@ -288,7 +317,7 @@ public class CartActivity extends FragmentActivity implements AdapterView.OnItem
         }
 
         TextView total = (TextView) findViewById(R.id.text_total);
-        total.setText("Heildarupphæð: " + currentTotal.toString());
+        total.setText("Total amount: " + currentTotal.toString());
     }
 
     /* Ef listItems er med thetta item.. skilum index.. annars -1.. mix.. */

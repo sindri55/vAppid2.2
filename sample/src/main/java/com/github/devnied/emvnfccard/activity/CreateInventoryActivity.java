@@ -222,7 +222,7 @@ public class CreateInventoryActivity extends FragmentActivity implements Adapter
         }, 1000);
 
         Context context = getApplicationContext();
-        CharSequence text = "Listi vistaður.";
+        CharSequence text = "List saved";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);
